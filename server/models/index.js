@@ -1,6 +1,6 @@
 var db = require('../db');
-
-
+var mysql = require('mysql');
+// var connection = require('../controllers');
 
 
 module.exports = {
