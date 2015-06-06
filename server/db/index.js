@@ -7,18 +7,18 @@ var query = function(bojangles){
   connection.query(bojangles);
 };
 
-var starts = function(){
-  connection.connect();
-}
-var end = function(){
-  connection.end();
-}
+// var starts = function(){
+//   connection.connect();
+// }
+// var end = function(){
+//   connection.end();
+// }
 
 
 exports.connection = connection;
 exports.query = query;
-exports.starts = starts;
-exports.end = end;
+// exports.starts = starts;
+// // exports.end = end;
 
 
 

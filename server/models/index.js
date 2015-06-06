@@ -6,7 +6,6 @@ module.exports = {
   messages: {
     get: function (req, res, callback) {
       console.log('in model');
-      db.starts();
       var data = db.query("SELECT u.username, m.message FROM messages m INNER JOIN users u on m.author = u.user_id;", function(err, row, fields){
         if (err){
           callback(res, data, 404);
@@ -14,12 +13,10 @@ module.exports = {
 
         console.log('Messages in row 1: ', rows[0]);
       });
-      db.ends();
       callback(res, data, 200);
 
     }, // a function which produces all the messages
     post: function (res, data, callback) {
-      db.starts();
 
       var authorId = db.query('SELECT user_id FROM users WHERE username = "' + req._postData.username + '"',function(err, rows, fields){
         if (err){
@@ -39,7 +36,6 @@ module.exports = {
         console("Message was added to table: " + rows[0]);
       });
 
-      db.ends();
       callback(res, data, 302);
     } // a function which can be used to insert a message into the database
   },

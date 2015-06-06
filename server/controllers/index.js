@@ -8,13 +8,14 @@ module.exports = {
     get: function (req, res) {
     console.log('INTO CONTROLLER')
       res.responseCode = 200;
-      models.messages[get](req, res, utils.sendResponse);
+      console.log(models.messages)
+      models.messages['get'](req, res, utils.sendResponse);
     }, // a function which handles a get request for all messages
     post: function (req, res) {
       // collect data
       utils.collectData(req, function(data){
         res.responseCode = 302;
-        models.messages[post](res, data, utils.sendResponse)
+        models.messages['post'](res, data, utils.sendResponse)
       });
     } // a function which handles posting a message to the database
   },

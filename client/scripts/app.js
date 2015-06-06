@@ -2,7 +2,7 @@
 app = {
 
     // server: 'https://api.parse.com/1/classes/chatterbox',
-    server: 'http://127.0.0.1:3000/classes/messages',
+    server: 'http://localhost:3000/classes/messages',
 
     init: function() {
       console.log('running chatterbox');
@@ -61,9 +61,8 @@ app = {
 
     loadMsgs: function(){
       $.ajax({
-        type: 'GET',
         url: app.server,
-        data: { order: '-createdAt' },
+        // data: { order: '-createdAt' },
         contentType: 'application/json',
         success: function(json){
           console.log("SUCCESS!!!")
