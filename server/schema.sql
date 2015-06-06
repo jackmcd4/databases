@@ -14,12 +14,12 @@ USE chat;
 --
 -- ---
 
-DROP TABLE IF EXISTS `users`;
+DROP TABLE IF EXISTS users;
 
-CREATE TABLE `users` (
-  `user_id` INTEGER(255) NULL AUTO_INCREMENT DEFAULT NULL,
-  `username` CHAR(30) NULL DEFAULT 'Anonymous',
-  PRIMARY KEY (`user_id`)
+CREATE TABLE users (
+  user_id INTEGER(255) NULL AUTO_INCREMENT DEFAULT NULL,
+  username CHAR(30) NULL DEFAULT 'Anonymous',
+  PRIMARY KEY (user_id)
 );
 
 -- ---
@@ -27,20 +27,20 @@ CREATE TABLE `users` (
 --
 -- ---
 
-DROP TABLE IF EXISTS `messages`;
+DROP TABLE IF EXISTS messages;
 
-CREATE TABLE `messages` (
-  `message_id` BIGINT NULL AUTO_INCREMENT DEFAULT NULL,
-  `author` INTEGER NULL DEFAULT NULL,
-  `message` VARCHAR(1000) NULL DEFAULT NULL,
-  PRIMARY KEY (`message_id`)
+CREATE TABLE messages (
+  message_id BIGINT NULL AUTO_INCREMENT DEFAULT NULL,
+  author INTEGER NULL DEFAULT NULL,
+  message VARCHAR(1000) NULL DEFAULT NULL,
+  PRIMARY KEY (message_id)
 );
 
 -- ---
 -- Foreign Keys
 -- ---
 
-ALTER TABLE `messages` ADD FOREIGN KEY (author) REFERENCES `users` (`user_id`);
+ALTER TABLE messages ADD FOREIGN KEY (author) REFERENCES users (user_id);
 
 -- ---
 -- Table Properties
@@ -54,7 +54,7 @@ ALTER TABLE `messages` ADD FOREIGN KEY (author) REFERENCES `users` (`user_id`);
 -- ---
 
 -- INSERT INTO `users` (`user_id`,`username`) VALUES
--- ('','');
+-- (,'');
 -- INSERT INTO `messages` (`message_id`,`author`,`message`) VALUES
 -- ('','','');
 
