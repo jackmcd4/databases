@@ -3,20 +3,22 @@ var mysql = require('mysql');
 var connection = mysql.createConnection({host: 'localhost',
   user: 'root', password: "", database: 'chat'});
 
-connection.connect(function(err){
-  if(err){
-    console.log('THIS IS THE ERROR')
-    console.log(err)
-    return;
-  }else{
-    console.log('Connected as id ' + connection.threadId);
-  }
+var query = function(bojangles){
+  connection.query(bojangles);
+};
 
-});
-
-module.exports = connection;
+var starts = function(){
+  connection.connect();
+}
+var end = function(){
+  connection.end();
+}
 
 
+exports.connection = connection;
+exports.query = query;
+exports.starts = starts;
+exports.end = end;
 
 
 

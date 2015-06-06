@@ -14,6 +14,20 @@ USE chat;
 --
 -- ---
 
+-- LIST OF ATTRIBUTES
+-- NOT NULL - Each row must contain a value for that column, null values are not allowed
+-- DEFAULT value - Set a default value that is added when no other value is passed
+-- UNSIGNED - Used for number types, limits the stored data to positive numbers and zero
+-- AUTO INCREMENT - MySQL automatically increases the value of the field by 1 each time a new record is added
+-- PRIMARY KEY - Used to uniquely identify the rows in a table. The column with PRIMARY KEY setting is often an ID number, and is often used with AUTO_INCREMENT
+
+-- Each table must have a primary key column and every value in that column must be unique
+
+-- CREATE TABLE tablename(
+--   columnName dataType list, Of, Attributes
+-- );
+
+
 DROP TABLE IF EXISTS users;
 
 CREATE TABLE users (

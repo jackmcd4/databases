@@ -1,12 +1,16 @@
 var db = require('../db');
 var mysql = require('mysql');
-// var connection = require('../controllers');
 
 
 module.exports = {
   messages: {
-    get: function () {}, // a function which produces all the messages
-    post: function () {} // a function which can be used to insert a message into the database
+    get: function (req, res, callback) {
+      mysql.
+      connection.
+    }, // a function which produces all the messages
+    post: function (res, data, callback) {
+
+    } // a function which can be used to insert a message into the database
   },
 
   users: {
