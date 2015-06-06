@@ -1,19 +1,20 @@
 var models = require('../models');
 var bluebird = require('bluebird');
-
+var utils = require('../utils');
 
 
 module.exports = {
   messages: {
     get: function (req, res) {
+    console.log('INTO CONTROLLER')
       res.responseCode = 200;
-      models.messages[get](req, res, sendResponse);
+      models.messages[get](req, res, utils.sendResponse);
     }, // a function which handles a get request for all messages
     post: function (req, res) {
       // collect data
-      collectData(req, function(data){
+      utils.collectData(req, function(data){
         res.responseCode = 302;
-        models.messages[post](res, data, sendResponse)
+        models.messages[post](res, data, utils.sendResponse)
       });
     } // a function which handles posting a message to the database
   },
@@ -35,28 +36,50 @@ module.exports = {
 
 };
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //not found function?
 
-var sendResponse = function(res){
-  res.writeHead(res.responseCode, headers);
-  if (res._data){
-    res.end(res._data);
-  } else {
-    res.end();
-  }
-};
+// var sendResponse = function(res){
+//   res.writeHead(res.responseCode, headers);
+//   if (res._data){
+//     res.end(res._data);
+//   } else {
+//     res.end();
+//   }
+// };
 
-var collectData = function(req, callback){
-  var body = '';
-  req.on('data', function(chunk){
-    body+=chunk;
-  });
-  req.on('end', function(){
+// var collectData = function(req, callback){
+//   var body = '';
+//   req.on('data', function(chunk){
+//     body+=chunk;
+//   });
+//   req.on('end', function(){
 
-    callback(body);
-  });
+//     callback(body);
+//   });
 
-};
+// };
 
 
 

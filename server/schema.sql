@@ -67,9 +67,9 @@ ALTER TABLE messages ADD FOREIGN KEY (author) REFERENCES users (user_id);
 -- Test Data
 -- ---
 
--- INSERT INTO `users` (`user_id`,`username`) VALUES
+-- INSERT INTO users  ( user_id , username ) VALUES
 -- (,'');
--- INSERT INTO `messages` (`message_id`,`author`,`message`) VALUES
+-- INSERT INTO messages  ( message_id , author , message ) VALUES
 -- ('','','');
 
 

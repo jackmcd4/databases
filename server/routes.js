@@ -6,6 +6,7 @@ var router = require('express').Router();
 // and grabs the get and post functions
 // for each
 for (var route in controllers) {
+  console.log("IN ROUTES");
   router.route("/" + route)
     .get(controllers[route].get)
     .post(controllers[route].post);

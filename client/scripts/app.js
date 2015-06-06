@@ -15,7 +15,7 @@ app = {
       // cache some dom references
       app.$text = $('#message');
 
-
+      console.log("About to load MSgs")
       app.loadMsgs();
       setInterval( app.loadMsgs.bind(app), 1000);
 
@@ -53,6 +53,7 @@ app = {
     },
 
     displayMessages: function(messages){
+      console.log("ABOUT TO DISPLAY MSGS:")
       for( var i = 0; i < messages.length; i++ ){
         app.displayMessage(messages[i]);
       }
@@ -60,11 +61,17 @@ app = {
 
     loadMsgs: function(){
       $.ajax({
+        type: 'GET',
         url: app.server,
         data: { order: '-createdAt' },
         contentType: 'application/json',
         success: function(json){
+          console.log("SUCCESS!!!")
           app.displayMessages(json.results);
+        },
+        failure: function(status){
+          console.log('loadMsgs failed');
+          console.log(status);
         },
         complete: function(){
           app.stopSpinner();
