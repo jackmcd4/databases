@@ -5,19 +5,15 @@ var utils = require('../utils');
 
 module.exports = {
   messages: {
-    get: function (req, res) {
-    console.log('INTO CONTROLLER')
-      res.responseCode = 200;
-      console.log(models.messages)
-      models.messages['get'](req, res, utils.sendResponse);
-    }, // a function which handles a get request for all messages
-    post: function (req, res) {
-      // collect data
-      utils.collectData(req, function(data){
-        res.responseCode = 302;
-        models.messages['post'](res, data, utils.sendResponse)
+    get: function(req, res){
+      models.messages.get(function(results){
+        console.log(req.body["text"]);
+        utils.sendResponse(results.response, results.data, results.statusCode);
       });
-    } // a function which handles posting a message to the database
+    },
+    post: function(req, res){
+
+    }
   },
 
   users: {
@@ -40,6 +36,65 @@ module.exports = {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// get: function (req, res) {
+//     console.log('INTO CONTROLLER')
+//       res.responseCode = 200;
+//       console.log(models.messages)
+//       models.messages['get'](req, res, utils.sendResponse);
+//     }, // a function which handles a get request for all messages
+//     post: function (req, res) {
+//       // collect data
+//       utils.collectData(req, function(data){
+//         res.responseCode = 302;
+//         models.messages['post'](res, data, utils.sendResponse)
+//       });
+//     } // a function which handles posting a message to the database
 
 
 
